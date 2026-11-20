@@ -95,6 +95,7 @@
 (() => {
   const toast = m => { const t = document.getElementById('demoToast'); t.textContent = m; t.classList.add('on'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('on'), 2600); };
   const esLogin = !!document.querySelector('.login2');
+  if (esLogin) { const em = document.querySelector('[name=email]'), se = document.querySelector('[name=senha]'); if (em) em.value = 'demo@ccasc.com.br'; if (se) se.value = 'demonstracao'; }
   document.querySelectorAll('form').forEach(f => f.addEventListener('submit', e => {
     if (e.defaultPrevented) return;
     e.preventDefault();
@@ -116,7 +117,7 @@
     const fd = op && op.body, acao = fd && fd.get ? fd.get('acao') : '';
     const r = d => new Promise(ok => setTimeout(() => ok(new Response(JSON.stringify(d), { headers: { 'Content-Type': 'application/json' } })), acao === 'artigo' ? 2600 : 1400));
     if (acao === 'pautas') return r({ ok: true, pautas: pautas.slice(0, +(fd.get('quantidade') || 6)) });
-    if (acao === 'artigo') return r({ ok: true, id: '2', titulo: fd.get('tema'), aviso: '' });
+    if (acao === 'artigo') return r({ ok: true, id: '2', titulo: String(fd.get('tema')).split('. Abordagem')[0], aviso: '' });
     if (acao === 'imagem') return r({ ok: true, imagem: '/cca/assets/img/consultoria.jpg' });
     if (acao === 'testar') return r({ ok: true, msg: 'Conexão com a Anthropic funcionando (demonstração).' });
     return r({ ok: false, erro: 'Ação indisponível na demonstração.' });
