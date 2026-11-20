@@ -1,3 +1,4 @@
+window.__ccaOk = true;
 (() => {
   const WHATSAPP = '554832118701';
   const $ = (s, el = document) => el.querySelector(s);

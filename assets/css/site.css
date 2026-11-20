@@ -686,3 +686,9 @@ strong{color:var(--tinta);font-weight:700}
 .paginas-blog{display:flex;gap:8px;justify-content:center;margin-top:56px}
 .paginas-blog a{min-width:44px;height:44px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--linha);background:#fff;font-weight:700}
 .paginas-blog a.on{background:var(--n1);color:var(--lima);border-color:var(--n1)}
+/* se o script não carregar, tudo aparece normalmente (sem animação) */
+html:not(.js) .rv,html:not(.js) .fade-up{opacity:1;transform:none}
+html:not(.js) .img-rv{clip-path:none}
+html:not(.js) .statement .wd{opacity:1}
+html:not(.js) .ring .fg,html:not(.js) .chart-card .ln{stroke-dashoffset:0}
+html:not(.js) .chart-card .area{opacity:1}
