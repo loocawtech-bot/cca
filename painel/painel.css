@@ -436,3 +436,11 @@ body.auth main .wrap{max-width:none;padding:0}
 .bn-img::before{background:linear-gradient(90deg,var(--n1) 0%,rgba(13,51,36,.92) 12%,rgba(13,51,36,.55) 38%,rgba(13,51,36,.15) 70%,rgba(13,51,36,0) 100%)}
 .banner::after{content:"";position:absolute;top:0;bottom:0;left:60%;width:22%;z-index:1;pointer-events:none;background:linear-gradient(90deg,var(--n1),rgba(13,51,36,0))}
 @media (max-width:1000px){.banner::after{display:none}}
+/* faixa com foto v2: foto dissolve no fundo verde (máscara), sem emenda */
+.banner{display:block}
+.banner::after{display:none}
+.bn-txt{max-width:62%}
+.bn-img{position:absolute;top:0;right:0;bottom:0;width:60%;z-index:0;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 22%,#000 55%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 22%,#000 55%)}
+.bn-img::before{background:linear-gradient(180deg,rgba(13,51,36,.05),rgba(13,51,36,.35))}
+@media (max-width:1000px){.bn-txt{max-width:none}.bn-img{width:100%;opacity:.35;-webkit-mask-image:none;mask-image:none}}
