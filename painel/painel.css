@@ -430,3 +430,9 @@ body.auth main .wrap{max-width:none;padding:0}
   .lg-arte{display:none}
 }
 @media (max-width:560px){.bn-txt{padding:26px 22px}.lg-form{padding:32px 20px}}
+/* faixa com foto: transição suave do verde para a foto, sem bordas claras */
+.bn-img{overflow:hidden}
+.bn-img img{inset:-2%;width:104%;height:104%;object-position:65% 35%}
+.bn-img::before{background:linear-gradient(90deg,var(--n1) 0%,rgba(13,51,36,.92) 12%,rgba(13,51,36,.55) 38%,rgba(13,51,36,.15) 70%,rgba(13,51,36,0) 100%)}
+.banner::after{content:"";position:absolute;top:0;bottom:0;left:60%;width:22%;z-index:1;pointer-events:none;background:linear-gradient(90deg,var(--n1),rgba(13,51,36,0))}
+@media (max-width:1000px){.banner::after{display:none}}
